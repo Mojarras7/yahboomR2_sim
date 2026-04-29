@@ -1,4 +1,4 @@
-# yahboomcar_description
+# Yahboom R2 Robot Simulation in Gazebo
 
 This ROS 2 package contains the URDF descriptions, meshes, and launch files for simulating the Yahboom R2 robot in Gazebo.
 
@@ -28,5 +28,5 @@ ros2 launch yahboomcar_description gazebo_R2.launch.py
 To run the simulation in the warehouse environment, pass the `world` argument with the value `warehouse`:
 
 ```bash
-ros2 launch yahboomcar_description gazebo_R2.launch.py world:=warehouse
+ros2 launch yahboomcar_description gazebo_R2.launch.py world:=warehouse.sdf
 ```
