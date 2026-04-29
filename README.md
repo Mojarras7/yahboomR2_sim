@@ -28,5 +28,5 @@ ros2 launch yahboomcar_description gazebo_R2.launch.py
 To run the simulation in the warehouse environment, pass the `world` argument with the value `warehouse.sdf`:
 
 ```bash
-ros2 launch yahboomcar_description gazebo_R2.launch.py world:=warehouse
+ros2 launch yahboomcar_description gazebo_R2.launch.py world:=warehouse.sdf
 ```
