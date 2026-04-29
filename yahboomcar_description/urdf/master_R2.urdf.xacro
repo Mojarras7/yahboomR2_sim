@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot name="yahboomcar_r2_sim" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- ========================================================= -->
+    <!-- 1. Include the original manufacturer chassis              -->
+    <!-- ========================================================= -->
+    <xacro:include filename="$(find yahboomcar_description)/urdf/yahboomcar_R2.urdf.xacro" />
+
+    <!-- ========================================================= -->
+    <!-- 2. Include the simulation plugins (Macros)                -->
+    <!-- ========================================================= -->
+    <xacro:include filename="$(find yahboomcar_description)/urdf/plugins/lidar_sensor.xacro" />
+    <xacro:include filename="$(find yahboomcar_description)/urdf/plugins/ackermann_steering.xacro" />
+    <xacro:include filename="$(find yahboomcar_description)/urdf/plugins/joint_state_publisher.xacro" />
+    <xacro:include filename="$(find yahboomcar_description)/urdf/plugins/camera_sensor.xacro" />
+
+    <!-- ========================================================= -->
+    <!-- 3. Instantiate the macros to build the final robot        -->
+    <!-- ========================================================= -->
+    
+    <!-- Initialize the LiDAR and attach it to the laser_link -->
+    <xacro:init_lidar_sensor sensor_link="laser_link"/>
+    
+    <!-- Initialize the drive system -->
+    <xacro:init_ackermann_steering />
+    
+    <!-- Initialize proprioception to prevent TF tree collapse -->
+    <xacro:init_joint_state_publisher />
+
+    <!-- Initialize the Camera and attach it to the camera_link -->
+    <xacro:init_camera_sensor sensor_link="camera_link"/>
+
+</robot>

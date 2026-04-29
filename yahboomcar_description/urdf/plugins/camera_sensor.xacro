@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- Macro with parameter for the link name -->
+    <xacro:macro name="init_camera_sensor" params="sensor_link">
+        <gazebo reference="${sensor_link}">
+            <sensor name="main_camera" type="camera">
+                <topic>image_raw</topic>
+                <update_rate>30.0</update_rate>
+                <gz_frame_id>${sensor_link}</gz_frame_id>
+                <camera>
+                    <!-- Field of View (FOV) in radians -->
+                    <horizontal_fov>1.047</horizontal_fov>
+                    <image>
+                        <width>640</width>
+                        <height>480</height>
+                        <format>R8G8B8</format>
+                    </image>
+                    <clip>
+                        <near>0.05</near>
+                        <far>8.0</far>
+                    </clip>
+                </camera>
+                <always_on>1</always_on>
+                <visualize>true</visualize>
+            </sensor>
+        </gazebo>
+    </xacro:macro>
+
+</robot>
