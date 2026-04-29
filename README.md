@@ -1,4 +1,4 @@
-# yahboomcar_description
+# Yahboom R2 Robot Simulation in Gazebo
 
 This ROS 2 package contains the URDF descriptions, meshes, and launch files for simulating the Yahboom R2 robot in Gazebo.
 
