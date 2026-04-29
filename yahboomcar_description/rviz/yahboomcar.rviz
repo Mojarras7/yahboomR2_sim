@@ -21,7 +21,7 @@ Visualization Manager:
       Name: TF
       Value: true
     # ==========================================
-    # Lidar Config (Agregado)
+    # Lidar Config 
     # ==========================================
     - Class: rviz_default_plugins/LaserScan
       Name: LaserScan
@@ -35,7 +35,7 @@ Visualization Manager:
       Size (m): 0.05
       Color: 255; 0; 0
     # ==========================================
-    # Camera Config (Agregado)
+    # Camera Config 
     # ==========================================
     - Class: rviz_default_plugins/Image
       Name: Image
