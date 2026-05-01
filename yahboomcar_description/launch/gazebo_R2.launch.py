@@ -78,9 +78,9 @@ def generate_launch_description():
             # Clock
             '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
             
-            # TF DYNAMIC (La corrección está aquí)
-            '/model/yahboomcar_R2/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V'
-        ],
+            # TF DYNAMIC 
+            '/model/yahboomcar_R2/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V' # this is the topic Gazebo uses for TF, we will remap it to /tf below
+        ], 
         remappings=[
             # Renombramos el tópico encapsulado de Gazebo al estándar de ROS 2
             ('/model/yahboomcar_R2/tf', '/tf')

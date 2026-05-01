@@ -18,7 +18,7 @@
                 <!-- ROS 2 Network Parameters -->
                 <odom_publish_frequency>30</odom_publish_frequency>
                 <topic>cmd_vel</topic>
-                <odom_topic>odom</odom_topic>
+                <odom_topic>odom</odom_topic> # This is the topic where the plugin will publish odometry information
                 <frame_id>odom</frame_id>
                 <child_frame_id>base_footprint</child_frame_id>
             </plugin>
