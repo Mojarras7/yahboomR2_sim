@@ -20,6 +20,7 @@ setup(
         (os.path.join('share', package_name, 'media', 'textures'), glob(os.path.join('media', 'textures', '*.png'))), # Include the media/textures folder and its contents
         (os.path.join('share',package_name,'meshes'),glob(os.path.join('meshes','*.*'))),
         (os.path.join('share',package_name,'rviz'),glob(os.path.join('rviz','*.rviz*'))),
+        (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

@@ -10,7 +10,6 @@ from launch_ros.parameter_descriptions import ParameterValue
 def generate_launch_description():
     pkg_name = 'yahboomcar_description'
     pkg_share = get_package_share_directory(pkg_name)
-    # Get the parent directory to allow "model://yahboomcar_description" references
     pkg_parent = os.path.dirname(pkg_share)
     
     # ==========================================================
@@ -18,11 +17,10 @@ def generate_launch_description():
     # ==========================================================
     declare_world_arg = DeclareLaunchArgument(
         'world',
-        default_value='empty_world.sdf', # <-- Ahora apunta a tu archivo con plugins
+        default_value='empty_world.sdf',
         description='SDF world file to load'
     )
     
-    # Critical: Include both the worlds folder and the package root
     set_gz_resource_path = SetEnvironmentVariable(
         name='GZ_SIM_RESOURCE_PATH',
         value=[os.path.join(pkg_share, 'worlds'), ':', pkg_parent]
@@ -39,7 +37,7 @@ def generate_launch_description():
         executable='robot_state_publisher',
         parameters=[{
             'robot_description': robot_description,
-            'use_sim_time': True  # Required for simulation
+            'use_sim_time': True
         }]
     )
     
@@ -75,13 +73,18 @@ def generate_launch_description():
             # Kinematics
             '/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist',
             '/odom@nav_msgs/msg/Odometry[gz.msgs.Odometry',
-            '/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V',
-            '/tf_static@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V',
             '/joint_states@sensor_msgs/msg/JointState[gz.msgs.Model',
             
             # Clock
-            '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock'
-        ], 
+            '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
+            
+            # TF DYNAMIC (La corrección está aquí)
+            '/model/yahboomcar_R2/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V'
+        ],
+        remappings=[
+            # Renombramos el tópico encapsulado de Gazebo al estándar de ROS 2
+            ('/model/yahboomcar_R2/tf', '/tf')
+        ],
         output='screen'
     )
 
