@@ -82,20 +82,25 @@ def generate_launch_description():
             '/model/yahboomcar_R2/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V' 
         ], 
         remappings=[
-            # Renombramos el tópico encapsulado de Gazebo al estándar de ROS 2
             ('/model/yahboomcar_R2/tf', '/tf')
         ],
         output='screen'
     )
 
     # ==========================================================
-    # 5. SLAM TOOLBOX
+    # 5. SLAM TOOLBOX (Custom Params)
     # ==========================================================
+    # Ruta hacia tu archivo de configuración en la carpeta config
+    slam_params_path = os.path.join(pkg_share, 'config', 'mapper_params_online_async.yaml')
+
     slam_toolbox_node = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory('slam_toolbox'), 'launch', 'online_async_launch.py')
         ),
-        launch_arguments={'use_sim_time': 'True'}.items()
+        launch_arguments={
+            'use_sim_time': 'True',
+            'slam_params_file': slam_params_path
+        }.items()
     )
 
     # ==========================================================
