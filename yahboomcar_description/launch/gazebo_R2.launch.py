@@ -79,7 +79,7 @@ def generate_launch_description():
             '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
             
             # TF DYNAMIC 
-            '/model/yahboomcar_R2/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V' # this is the topic Gazebo uses for TF, we will remap it to /tf below
+            '/model/yahboomcar_R2/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V' 
         ], 
         remappings=[
             # Renombramos el tópico encapsulado de Gazebo al estándar de ROS 2
@@ -89,7 +89,17 @@ def generate_launch_description():
     )
 
     # ==========================================================
-    # 5. RVIZ VISUALIZATION
+    # 5. SLAM TOOLBOX
+    # ==========================================================
+    slam_toolbox_node = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory('slam_toolbox'), 'launch', 'online_async_launch.py')
+        ),
+        launch_arguments={'use_sim_time': 'True'}.items()
+    )
+
+    # ==========================================================
+    # 6. RVIZ VISUALIZATION
     # ==========================================================
     rviz_config_path = os.path.join(pkg_share, 'rviz', 'yahboomcar.rviz')
     
@@ -109,5 +119,6 @@ def generate_launch_description():
         gz_sim,
         spawn_entity,
         bridge_node,
+        slam_toolbox_node,
         rviz_node
     ])
