@@ -2,6 +2,22 @@
 
 This ROS 2 package contains the URDF descriptions, meshes, and launch files for simulating the Yahboom R2 robot in Gazebo.
 
+## Requirements
+
+This simulation is built and tested for **ROS 2 Jazzy**. To run the simulation and all the tools (including SLAM Toolbox, Gazebo Bridge, and RViz), you need to install the following dependencies:
+
+```bash
+sudo apt update
+sudo apt install ros-jazzy-xacro \
+                 ros-jazzy-ros-gz \
+                 ros-jazzy-slam-toolbox \
+                 ros-jazzy-robot-state-publisher \
+                 ros-jazzy-rviz2 \
+                 ros-jazzy-joint-state-publisher
+```
+
+*(You can also find all the dependencies listed in `requirements.txt`)*
+
 ## Building the Package
 
 To build the package, navigate to your ROS 2 workspace root and run:
