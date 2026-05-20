@@ -69,6 +69,7 @@ def generate_launch_description():
             '/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan',
             '/image_raw@sensor_msgs/msg/Image[gz.msgs.Image',
             '/camera_info@sensor_msgs/msg/CameraInfo[gz.msgs.CameraInfo',
+            '/imu/data@sensor_msgs/msg/Imu[gz.msgs.IMU',
             
             # Kinematics
             '/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist',

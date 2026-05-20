@@ -13,6 +13,7 @@
     <xacro:include filename="$(find yahboomcar_description)/urdf/plugins/ackermann_steering.xacro" />
     <xacro:include filename="$(find yahboomcar_description)/urdf/plugins/joint_state_publisher.xacro" />
     <xacro:include filename="$(find yahboomcar_description)/urdf/plugins/camera_sensor.xacro" />
+    <xacro:include filename="$(find yahboomcar_description)/urdf/plugins/imu_sensor.xacro" />
 
     <!-- ========================================================= -->
     <!-- 3. Instantiate the macros to build the final robot        -->
@@ -29,5 +30,8 @@
 
     <!-- Initialize the Camera and attach it to the camera_link -->
     <xacro:init_camera_sensor sensor_link="camera_link"/>
+
+    <!-- Initialize the IMU and attach it to the imu_link -->
+    <xacro:init_imu_sensor sensor_link="imu_link"/>
 
 </robot>
