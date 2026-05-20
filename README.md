@@ -4,19 +4,13 @@ This ROS 2 package contains the URDF descriptions, meshes, and launch files for 
 
 ## Requirements
 
-This simulation is built and tested for **ROS 2 Jazzy**. To run the simulation and all the tools (including SLAM Toolbox, Gazebo Bridge, and RViz), you need to install the following dependencies:
+This simulation assumes you already have **ROS 2 Jazzy** and its core tools installed. The main specific requirement for this setup is **SLAM Toolbox**. 
+
+If you are missing any dependencies, you can install them all at once using the `requirements.txt` file by running:
 
 ```bash
-sudo apt update
-sudo apt install ros-jazzy-xacro \
-                 ros-jazzy-ros-gz \
-                 ros-jazzy-slam-toolbox \
-                 ros-jazzy-robot-state-publisher \
-                 ros-jazzy-rviz2 \
-                 ros-jazzy-joint-state-publisher
+xargs -a requirements.txt sudo apt install -y
 ```
-
-*(You can also find all the dependencies listed in `requirements.txt`)*
 
 ## Building the Package
 
