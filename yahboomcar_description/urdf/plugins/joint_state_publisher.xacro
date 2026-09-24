@@ -7,7 +7,6 @@
                 <!-- Update frequency in Hz -->
                 <update_rate>30</update_rate>
                 
-                <!-- Explicit topic declaration (CRITICAL FOR RVIZ) -->
                 <topic>joint_states</topic>
                 
                 <!-- List of all moving joints in the robot -->

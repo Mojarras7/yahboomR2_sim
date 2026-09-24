@@ -3,9 +3,9 @@
 <package format="3">
   <name>yahboomcar_description</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="nx-ros2@todo.todo">nx-ros2</maintainer>
-  <license>TODO: License declaration</license>
+  <description>ROS 2 URDF models, Gazebo simulation launch files, and warehouse environments for Yahboom Rosmaster R2.</description>
+  <maintainer email="mojarrasalejandro@gmail.com">Alejandro Mojarras</maintainer>
+  <license>Apache-2.0</license>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

@@ -9,7 +9,7 @@
                 <update_rate>30.0</update_rate>
                 <gz_frame_id>${sensor_link}</gz_frame_id>
                 <camera>
-                    <!-- Field of View (FOV) in radians -->
+                    <!-- Horizontal FOV in radians -->
                     <horizontal_fov>1.047</horizontal_fov>
                     <image>
                         <width>640</width>
